@@ -8,18 +8,23 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.myapicall.JokesAdapter
 import com.example.myapicall.R
 import com.example.myapicall.databinding.FragmentSingleJokeBinding
 import com.example.myapicall.model.JokeResponse
 import com.example.myapicall.model.Jokes
 import com.example.myapicall.utils.UIState
 import com.example.myapicall.viewModel.JokeViewModel
+import retrofit2.Response
 
 
 class SingleJokeFragment : BaseFragment() {
 
     private val binding by lazy {
         FragmentSingleJokeBinding.inflate(layoutInflater)
+    }
+    private val jokeAdapter by lazy{
+        JokesAdapter()
     }
 
 

@@ -22,10 +22,10 @@ class EditFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding.editTextBtn.setOnClickListener{
-        val firstNameInput = binding.editFirstName.text.toString()
-        val lastNameInput = binding.editLastName.text.toString()
+        var firstName = binding.editFirstName.text.toString()
+        var lastName = binding.editLastName.text.toString()
             findNavController().navigate(R.id.action_editFragment_to_singleJokeFragment)
-            jokeViewModel.getYourCustomJoke(firstNameInput, lastNameInput)
+            jokeViewModel.getYourCustomJoke( firstName, lastName)
 
         }
         return binding.root

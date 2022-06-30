@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapicall.JokesAdapter
 import com.example.myapicall.R
 import com.example.myapicall.databinding.FragmentInfiniteListBinding
+import com.example.myapicall.model.JokeResponse
 import com.example.myapicall.utils.UIState
 import com.example.myapicall.viewModel.JokeViewModel
+import retrofit2.Response
 
 
 class InfiniteListFragment : BaseFragment() {
@@ -41,17 +43,18 @@ class InfiniteListFragment : BaseFragment() {
                         binding.rcLoadingSpinner.visibility = View.VISIBLE
                         binding.infiniteRecyclerView.visibility = View.GONE
                     }
+
                     is UIState.SUCCESS<*> -> {
                         binding.rcLoadingSpinner.visibility = View.GONE
                         binding.infiniteRecyclerView.visibility = View.VISIBLE
                     }
+
                     is UIState.ERROR -> {
                         binding.rcLoadingSpinner.visibility = View.GONE
                         binding.infiniteRecyclerView.visibility = View.GONE
                     }
                 }
             }
-
 
         jokeViewModel.getListOfJokes()
         return binding.root

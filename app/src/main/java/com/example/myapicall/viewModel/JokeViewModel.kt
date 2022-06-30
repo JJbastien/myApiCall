@@ -65,10 +65,10 @@ class JokeViewModel @Inject constructor(
         }
     }
 
-    fun getYourCustomJoke(firstName:String, lastName:String){
+    fun getYourCustomJoke(firstName: String, lastName: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response =  jokeRepository.getRandom()
+                val response =  jokeRepository.getCustomJoke(firstName ,lastName)
                 if (response.isSuccessful){
                     response.body()?.let {
                         withContext(Dispatchers.Main){

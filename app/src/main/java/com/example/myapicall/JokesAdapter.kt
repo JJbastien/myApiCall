@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapicall.databinding.FragmentInfiniteListBinding
 import com.example.myapicall.databinding.FragmentSingleJokeBinding
+import com.example.myapicall.model.JokeResponse
 import com.example.myapicall.model.Jokes
 
 class JokesAdapter(private val jokeSet: MutableList<Jokes> = mutableListOf(),

@@ -10,8 +10,8 @@ import javax.inject.Inject
 interface JokeRepository {
 
 suspend  fun getRandom(): Response<Jokes>
- suspend fun  getNonEndinglist(): Response<JokeResponse>
- suspend fun getCustomJoke(): Response<Jokes>
+suspend fun  getNonEndinglist(): Response<JokeResponse>
+ suspend fun getCustomJoke(firstname:String, lastName:String): Response<Jokes>
 }
 
 class JokeRepositoryImpl @Inject constructor (
@@ -21,10 +21,10 @@ class JokeRepositoryImpl @Inject constructor (
     override suspend fun getRandom(): Response<Jokes> =
        serviceApi.getRandomJoke("explicit")
 
-    override suspend fun getNonEndinglist(): Response<JokeResponse> =
+   override suspend fun getNonEndinglist(): Response<JokeResponse> =
        serviceApi.getRandomList(20, "explicit")
 
-    override suspend fun getCustomJoke(): Response<Jokes> =
+    override suspend fun getCustomJoke(firstname:String, lastName:String): Response<Jokes> =
        serviceApi.getCustom("firstName", "lastName")
 
 
